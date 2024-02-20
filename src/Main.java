@@ -1,18 +1,18 @@
 // I have neither given nor received unauthorized aid on this piece of work.
 
-import java.util.Scanner;
-
 public class Main {
 
     // 1. add
     public static int add(int a, int b) {
-        return a+b;
+        return a + b;
     }
 
     // 2. addFour
     public static int add(int i, int i1, int i2, int i3) {
-        int j = i1 + i2 + i3;
-        return add(i, j);
+        int j = add(i, i1);
+        int k = add(j, i2);
+        int l = add(k, i3);
+        return l;
     }
 
     // 3. morningGreeting
@@ -36,14 +36,31 @@ public class Main {
         return num /= 2.0;
     }
 
-    public static int roundPositiveValueToNearestInteger(double v) {
-        return ;
-    }
-
-    public static int roundNegativeValueToNearestInteger(double v) {
-        return 6;
-    }
     // 7. roundPositiveValueToNearestInteger
+    public static int roundPositiveValueToNearestInteger(double v) {
+        int vRounded = (int) v;
+        double fractionalPart = v - vRounded;
+        int vOutput;
+
+        if (fractionalPart >= -0.5) {
+            vOutput = vRounded + 1;
+        } else {
+            vOutput = vRounded;
+        }
+        return vOutput;
+    }
 
     // 8. roundNegativeValueToNearestInteger
+    public static int roundNegativeValueToNearestInteger(double v) {
+        int vRounded = (int) v;
+        double fractionalPart = v - vRounded;
+        int vOutput;
+
+        if (fractionalPart <= -0.5) {
+            vOutput = vRounded - 1;
+        } else {
+            vOutput = vRounded;
+        }
+        return vOutput;
+    }
 }
